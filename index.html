@@ -1,0 +1,92 @@
+<!DOCUMENT html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>云词图</title>
+<script src="echarts.min.js"></script>
+<script src="echarts-wordcloud.min.js"></script>
+</head>
+<body>
+        <style>
+            html, body{
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            #main{
+                width: 1730px;
+                height: 820px;
+                background: rgba(70, 120, 200, 0.2)
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+ 
+            var option = {
+                tooltip: {},
+                series: [ {
+                    type: 'wordCloud',
+                    gridSize: 1,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    shape: 'circle',
+                    drawOutOfBound: true,
+                    textStyle: {
+                        normal: {
+                            color: function() {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 255),
+                                    Math.round(Math.random() * 255),
+                                    Math.round(Math.random() * 255)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: [
+				{name: '中国', value: 3173},
+				{name: '我们', value: 3164},
+				{name: '加油', value: 2986},
+				{name: '致敬', value: 2610},
+				{name: '快递', value: 2534},
+				{name: '疫情', value: 2298},
+				{name: '真的', value: 2224},
+				{name: '武汉', value: 2179},
+				{name: '感动', value: 2152},
+				{name: '你们', value: 1752},
+				{name: '英雄', value: 1681},
+				{name: '感谢', value: 1679},
+				{name: '这个', value: 1535},
+				{name: '德邦', value: 1521},
+				{name: '小哥', value: 1291},
+				{name: '看到', value: 1122},
+				{name: '电视剧', value: 1060},
+				{name: '医护人员', value: 1036},
+				{name: '眼泪', value: 1008},
+				{name: '真实', value: 1008},
+				{name: '伟大', value: 986},
+				{name: '医生', value: 913},
+				{name: '辛苦', value: 791},
+				{name: '这部', value: 773},
+				{name: '付出', value: 755},
+				{name: '抗疫', value: 708},
+				{name: '最美', value: 673},
+				{name: '感人', value: 613},
+				{name: '点赞', value: 509},
+				{name: '白衣天使', value: 464},
+				]
+
+
+                } ]
+            };
+ 
+            chart.setOption(option);
+ 
+            window.onresize = chart.resize;
+        </script>
+    </body>
+</html>
